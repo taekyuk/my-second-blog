@@ -3,7 +3,7 @@
                 <div class="post">
                     {% if post.published_date %}
                         <div class="date">
-                            {{% if post.published_date %}}
+                            {{ post.published_date }}
                         </div>
                     {% endif %}
                     <h1>{{ post.title }}</h1>
