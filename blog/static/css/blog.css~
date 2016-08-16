@@ -54,7 +54,7 @@ h1,h2,h3,h4{
     float: right;
     margin-top: 20px;
     padding-right: 4px;
-    font-size : 25px;
+    font-size : 21px;
     
 }
 
