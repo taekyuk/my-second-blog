@@ -74,8 +74,16 @@ h1,h2,h3,h4{
     float: right;
     font-weight : italic;
     font-size : 15px;
-    color: #00ffff;
+    color: #3c3c3c;
+}
+.reg {
+    font-size : 5pt;
+    color: #3c3c3c;
 }
 
-
+.reg h1, .reg h1 a, .reg h1 a:visited, .reg h1 a:active{
+    color: #ffffff;
+    font-size: 6pt;
+    text-decoration: none;
+}
 

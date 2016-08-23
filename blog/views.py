@@ -7,6 +7,12 @@ from .forms import PostForm, CommentForm
 from django.contrib.auth.decorators import login_required
 from .models import Post, Comment
 
+from django.shortcuts import render_to_response
+from django.http import HttpResponseRedirect
+from django.contrib import auth
+from django.core.context_processors import csrf
+from django.contrib.auth.forms import UserCreationForm
+
 @login_required
 def post_list(request):
     posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
@@ -73,3 +79,17 @@ def post_remove(request, pk):
     post = get_object_or_404(Post, pk=pk)
     post.delete()
     return redirect('blog.views.post_list')
+
+def register_user(request):
+    if request.method =='POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect('/accounts/register_success')
+    args = {}
+    args.update(csrf(request))
+    args['form'] = UserCreationForm()
+    print(args)
+    return render_to_response('register.html',args)
+def register_success(request):
+    return render_to_response('register_success.html')

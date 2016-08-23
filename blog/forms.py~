@@ -1,9 +1,27 @@
 from django import forms
+from .models import Post, Comment
 
-from .models import Post
-
+from django import newforms as forms
 class PostForm(forms.ModelForm):
 
     class Meta:
         model = Post
         fields = ('title','text',)
+
+class CommentForm(forms.ModelForm):
+
+    class Meta:
+        model = Comment
+        fields = ('author', 'text',)
+
+class RegistrationForm(forms.Form):
+    username = forms.CharField(label='name', max_length=30)
+    email = forms.EmailField(label='email')
+    password1 = forms.CharField(
+        label='password',
+        widget=forms.PasswordInput()
+    )
+    password2 = forms.CharField(
+        label='password(again)',
+        widget=forms.PasswordInput()
+    )

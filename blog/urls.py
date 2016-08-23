@@ -10,4 +10,6 @@ urlpatterns = [
     url(r'^comment/(?P<pk>\d+)/approve/$', views. comment_approve, name='comment_approve'),
     url(r'^comment/(?P<pk>\d+)/remove/$', views.comment_remove, name='comment_remove'),
     url(r'^post/(?P<pk>\d+)/remove/$', views.post_remove, name='post_remove'),
+    url(r'^accounts/register/$', views.register_user, name = 'register_user'),
+    url(r'^accounts/register_success/$', views.register_success, name='register_success'),
 ]
